@@ -1,7 +1,9 @@
 .list-container{
     margin:20px 0 20px 0;
     padding: 40px 0 40px 0;
+}
+.tab-section{
+    padding: 10px 0 10px 0;
     display:grid;
     gap: 20px;
-
 }

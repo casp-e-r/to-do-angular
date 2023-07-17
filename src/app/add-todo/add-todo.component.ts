@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent {
-
+  todos:any = [];  
+  task: any = ''
+  addTask() { 
+    this.todos = [...this.todos,this.task]; 
+  } 
+  
 }
