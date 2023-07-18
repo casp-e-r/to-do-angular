@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'app-todolist',
@@ -6,4 +6,9 @@ import { Component } from '@angular/core'
   styleUrls: ['./todolist.component.css'],
 })
 export class TodolistComponent {
+  @Input() tasks: string[] = [];
+
+  addTask(task: string) {
+    this.tasks.push(task);
+  }
 }

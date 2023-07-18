@@ -1,26 +1,14 @@
 <div class="list-container">
   <mat-tab-group dynamicHeight preserveContent>
-    <mat-tab label="Pending">
-      <div class="tab-section mat-elevation-z4">
+    <mat-tab label="Pending" >
+      <li class="tab-section " *ngFor="let task of tasks">
         <mat-card>
-          <mat-card-content>Task 1</mat-card-content>
+          <mat-card-content>{{task}}</mat-card-content>
         </mat-card>
-        <mat-card>
-          <mat-card-content>Task 1</mat-card-content>
-        </mat-card>
-        <mat-card>
-          <mat-card-content>Task 3</mat-card-content>
-        </mat-card>
-        <mat-card>
-          <mat-card-content>Task 4</mat-card-content>
-        </mat-card>
-        <mat-card>
-          <mat-card-content>Task 5</mat-card-content>
-        </mat-card>
-      </div>
+      </li>
     </mat-tab>
     <mat-tab class="tab-section" label="Completed">
-      <div class="tab-section mat-elevation-z4">
+      <div class="tab-section ">
         <mat-card>
           <mat-card-content>Completed Task 1</mat-card-content>
         </mat-card>
@@ -33,7 +21,7 @@
       </div>
     </mat-tab>
     <mat-tab class="tab-section" label="Deleted">
-      <div class="tab-section mat-elevation-z4">
+      <div class="tab-section ">
         <mat-card>
           <mat-card-content>Deleted Task</mat-card-content>
         </mat-card>

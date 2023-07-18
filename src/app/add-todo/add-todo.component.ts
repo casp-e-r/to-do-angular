@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-todo',
@@ -6,10 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent {
-  todos:any = [];  
-  task: any = ''
-  addTask() { 
-    this.todos = [...this.todos,this.task]; 
-  } 
-  
+  newTask: string = '';
+  @Output() taskAdded = new EventEmitter<string>();
+
+  addTask() {
+    if (this.newTask.trim().length === 0) {
+      return; 
+    }
+    this.taskAdded.emit(this.newTask);
+    this.newTask = ''; 
+  }
 }
