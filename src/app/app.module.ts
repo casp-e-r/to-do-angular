@@ -12,6 +12,8 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import { FormsModule } from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatTabsModule,
-    FormsModule
+    FormsModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

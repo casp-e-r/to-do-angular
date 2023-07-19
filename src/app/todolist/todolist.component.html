@@ -1,31 +1,74 @@
 <div class="list-container">
   <mat-tab-group dynamicHeight preserveContent>
-    <mat-tab label="Pending" >
-      <li class="tab-section " *ngFor="let task of tasks">
-        <mat-card>
-          <mat-card-content>{{task}}</mat-card-content>
-        </mat-card>
-      </li>
+    <mat-tab label="Pending">
+      <mat-list role="list" #pendingTasks>
+        <ng-container *ngIf="tasks.pending.length > 0; else emptyState">
+          <mat-list-item *ngFor="let pending of tasks.pending as task">
+            <mat-card>
+              <mat-card-content>
+                <div class="task-container">
+                  <div>{{ pending }}</div>
+                  <div style="display:flex;gap:10px">
+                    <mat-icon class="icon-complete" (click)="completeTask(pending)">check</mat-icon>
+                    <mat-icon class="icon-delete" (click)="deleteTask(pending)">delete</mat-icon>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </mat-list-item>
+        </ng-container>
+        <ng-template #emptyState>
+          <mat-card class="empty-card">
+            <mat-card-content>
+              No pending tasks.
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </mat-list>
     </mat-tab>
-    <mat-tab class="tab-section" label="Completed">
-      <div class="tab-section ">
-        <mat-card>
-          <mat-card-content>Completed Task 1</mat-card-content>
-        </mat-card>
-        <mat-card>
-          <mat-card-content>Completed Task 1</mat-card-content>
-        </mat-card>
-        <mat-card>
-          <mat-card-content>Completed Task 3</mat-card-content>
-        </mat-card>
-      </div>
+    <mat-tab label="Completed">
+      <mat-list role="list" #completedTasks>
+        <ng-container *ngIf="tasks.completed.length > 0; else emptyCompletedState">
+          <mat-list-item *ngFor="let completed of tasks.completed as task">
+            <mat-card>
+              <mat-card-content>
+                <div class="task-container">
+                  <div>{{ task }}</div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </mat-list-item>
+        </ng-container>
+        <ng-template #emptyCompletedState>
+          <mat-card class="empty-card">
+            <mat-card-content>
+              No completed tasks.
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </mat-list>
     </mat-tab>
-    <mat-tab class="tab-section" label="Deleted">
-      <div class="tab-section ">
-        <mat-card>
-          <mat-card-content>Deleted Task</mat-card-content>
-        </mat-card>
-      </div>
+    <mat-tab label="Deleted">
+      <mat-list role="list" #deletedTasks>
+        <ng-container *ngIf="tasks.deleted.length > 0; else emptyDeletedState">
+          <mat-list-item *ngFor="let deleted of tasks.deleted as task">
+            <mat-card>
+              <mat-card-content>
+                <div class="task-container">
+                  <div>{{ task }}</div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </mat-list-item>
+        </ng-container>
+        <ng-template #emptyDeletedState>
+          <mat-card class="empty-card">
+            <mat-card-content>
+              No deleted tasks.
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </mat-list>
     </mat-tab>
   </mat-tab-group>
 </div>

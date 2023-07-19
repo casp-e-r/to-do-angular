@@ -7,3 +7,18 @@
     display:grid;
     gap: 20px;
 }
+.task-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(161, 161, 233, 0.315);
+  }
+.empty-card{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+.icon-delete { color: #ff0000; cursor:pointer }
+.icon-complete { color: #00ff00; cursor:pointer }
+.icon-edit { color: #ff8800; cursor:pointer }

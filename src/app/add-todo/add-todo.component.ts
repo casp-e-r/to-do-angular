@@ -6,8 +6,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent {
-  newTask: string = '';
-  @Output() taskAdded = new EventEmitter<string>();
+  newTask: any = '';
+  @Output() taskAdded = new EventEmitter<any>();
 
   addTask() {
     if (this.newTask.trim().length === 0) {

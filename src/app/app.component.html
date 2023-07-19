@@ -1,4 +1,4 @@
 <section class="app-container">
   <app-add-todo (taskAdded)="addTask($event)" ></app-add-todo>
-  <app-todolist [tasks]="tasks" ></app-todolist>
+  <app-todolist [tasks]="tasks" (taskCompleted)="completeTask($event)" (taskDeleted)="deleteTask($event)" ></app-todolist>
 </section>
