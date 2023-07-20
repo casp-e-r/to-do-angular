@@ -9,19 +9,19 @@ export class AppComponent {
   title = 'to-do-list';
   tasks: any ={pending:[],completed:[],deleted:[]}
   addTask(task: string) {
-    this.tasks.pending.push(task);
+    this.tasks.pending.push({task:task,id:this.tasks.pending.length+1});
   }
   
-  completeTask(completedTask:string) {
+  completeTask(completedTask:any) {
     if (this.tasks.pending.includes(completedTask)) {
       this.tasks.completed.push(completedTask);
-      this.tasks.pending = this.tasks.pending.filter((tData:string)=>tData !=completedTask)  
+      this.tasks.pending = this.tasks.pending.filter((tData:any)=>tData?.id !=completedTask?.id)  
     }
   }
-  deleteTask(deletedTask:string) {
+  deleteTask(deletedTask:any) {
     if (this.tasks.pending.includes(deletedTask)) {
       this.tasks.deleted.push(deletedTask); 
-      this.tasks.pending = this.tasks.pending.filter((tData:string)=>tData !=deletedTask)  
+      this.tasks.pending = this.tasks.pending.filter((tData:any)=>tData?.id !=deletedTask?.id)  
 
     }
   }
